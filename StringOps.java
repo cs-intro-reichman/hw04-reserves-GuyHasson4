@@ -62,16 +62,13 @@ public class StringOps {
             previous = string.charAt(j-1);
             current = string.charAt(j);
 
-            if (previous == ' ' && current != ' '){
-                if (current >= 'a' && current <= 'z'){
-                    sentence += current;
-            }else{
-                sentence += (char)(current + 32);
-                }
-            }else if (current != ' ') {
-                    sentence += current;
-                }
+             if (previous == ' ' && current != ' ') {
+            sentence += (char) (current >= 'a' && current <= 'z' ? current - 32 : current);
+        } else if (current != ' ') {
+            sentence += current;
+            }
         }
+
         return sentence;
     }
 
