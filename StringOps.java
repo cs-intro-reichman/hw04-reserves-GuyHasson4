@@ -64,7 +64,7 @@ public class StringOps {
 
             if (previous == ' ' && current != ' '){
                 if (current != ' '){
-                    sentence += (char)(current >= 'A' && current <= 'Z' ? current - 32 : current);
+                    sentence += (char)(current >= 'a' && current <= 'z' ? current - 32 : current);
                 }
             }else if (current != ' ') {
                     sentence += current;
