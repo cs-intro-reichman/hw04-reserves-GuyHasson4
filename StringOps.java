@@ -44,19 +44,19 @@ public class StringOps {
 
     public static String camelCase (String string) {
         // Write your code here:
-        char previous;
+        char previous = ' ';
         char current;
         String sentence = "";
 
         int i = 0;
-        while (string.charAt(i) == ' '){
+        while (i < string.length() && string.charAt(i) == ' '){
             i++;
         }
         string = string.substring(i);
 
         if(string.length() > 0){
             current = string.charAt(0);
-            sentence += (char)(current + 32);
+            sentence += (char)(current >= 'A' && current <= 'Z' ? current + 32 : current);
         }
         for (int j = 1; j < string.length() ; j++ ) {
             previous = string.charAt(j-1);
@@ -64,14 +64,12 @@ public class StringOps {
 
             if (previous == ' '){
                 if (current != ' '){
-                    sentence += (char)(current - 32);
+                    sentence += (char)(current >= 'A' && current <= 'Z' ? current : current - 32);
                 }
             }else{
-                    if (current != ' '){
-                        sentence += (char)(current + 32);
-                    }
+                        sentence += (char)(current >= 'A' && current <= 'Z' ? current + 32 : current);
                 }
-           
+           previous = current;
         }
         return sentence;
     }
